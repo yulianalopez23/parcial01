@@ -17,8 +17,6 @@ export class LoginComponent implements OnInit {
   public messagefalse: String;
   public contador = 0;
 
-  public listUser = []
-
   constructor(
     private _userService: UserService
   ) { 
@@ -50,7 +48,6 @@ export class LoginComponent implements OnInit {
       this.message = '';
     }   
   }
-
   ngRegister(){
     var response = this._userService.registrarUsuario(this.user);
     if(response.state){
@@ -61,5 +58,6 @@ export class LoginComponent implements OnInit {
       this.message = '';
     }
   }
+  
 
 }

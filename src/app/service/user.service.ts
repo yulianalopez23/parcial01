@@ -3,9 +3,8 @@ import { Respuesta } from '../models/respuesta';
 
 
 export class UserService{
-    public listUser = new Array<User>()
+    public listUser = []
     public contador = 0;
-    public usuario = new User(0,"sol","mamani","abisolcita","smamani","smamani","123","123",true);
 
     
     registrarUsuario(usuario: User): Respuesta{
@@ -45,6 +44,7 @@ export class UserService{
 
     loginUsuario(usuario: User): Respuesta{
         console.log("=======login=======");
+        console.log("usuario"+usuario.usuario);
         var respuesta = new Respuesta("¡Usuario logueado correctamente!", true);
         if(usuario.usuario==""||usuario.usuario==null){
             respuesta.message = "¡Ingrese el usuario!"
@@ -53,6 +53,7 @@ export class UserService{
             respuesta.message = "¡Ingrese la contraseña!"
             respuesta.state = false
         }else{
+            console.log("lis -> "+this.listUser.length);
             this.listUser.map((item: User) => {
                 console.log("user -> "+item.usuario);
                 var str1 = new String(usuario.usuario);
